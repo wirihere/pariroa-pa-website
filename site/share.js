@@ -310,10 +310,9 @@
     var sent = doneCount, failed = failCount;
     items = []; nextIndex = 0; doneCount = 0; failCount = 0;
     if (sent > 0) {
-      var email = currentEmail();
       thanksText.textContent = failed > 0
-        ? 'Ngā mihi — ' + sent + ' photo' + (sent === 1 ? ' is' : 's are') + ' with the administrators now. We\u2019ll be in touch at ' + email + ' when they\u2019re posted. (' + failed + ' did not send — you can try those again.)'
-        : 'Ngā mihi — your photos are with the administrators now. We\u2019ll be in touch at ' + email + ' when they\u2019re posted on the site.';
+        ? 'Ngā mihi — ' + sent + ' photo' + (sent === 1 ? ' was' : 's were') + ' sent. (' + failed + ' did not send — you can try those again.)'
+        : 'Ngā mihi — your photos have been sent.';
       thanksSection.hidden = false;
       thanksSection.scrollIntoView({ behavior: 'smooth' });
       $('psg-send-more').focus();
@@ -327,7 +326,7 @@
   sendAllBtn.addEventListener('click', function () {
     say(dropMsg, '');
     if (!validEmail(currentEmail())) {
-      say(dropMsg, 'Please leave your email above first — so we can tell you when your photos are posted.', 'error');
+      say(dropMsg, 'Please leave your email above first.', 'error');
       emailInput.focus();
       return;
     }
