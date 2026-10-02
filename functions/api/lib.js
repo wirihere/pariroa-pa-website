@@ -28,7 +28,7 @@ export async function sha256hex(str) {
   return [...new Uint8Array(digest)].map(b => b.toString(16).padStart(2, "0")).join("");
 }
 
-async function hmacSha256(keyStr, msgStr) {
+export async function hmacSha256(keyStr, msgStr) {
   const key = await crypto.subtle.importKey(
     "raw", enc.encode(keyStr), { name: "HMAC", hash: "SHA-256" }, false, ["sign"]
   );

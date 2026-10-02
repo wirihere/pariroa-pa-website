@@ -9,6 +9,10 @@ compatibility_date = "2026-10-01"
 binding = "PHOTOS"
 bucket_name = "pariroa-photos"
 
+[[r2_buckets]]
+binding = "SIGNUPS"
+bucket_name = "pariroa-signups"
+
 # NOTE: secrets (SESSION_SECRET, ADMIN_EMAILS) are managed with
 # `npx wrangler pages secret put` — not here. A [vars] block here makes
 # deploys drop project secrets (observed 2 Oct 2026, wrangler 4.59.2).

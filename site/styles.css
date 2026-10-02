@@ -989,6 +989,27 @@ main section p a, .info-text p a { text-decoration: underline; }
 #whanau-section[hidden] { display: none; }
 #whanau-gallery:empty { margin-top: 0; }
 
+/* Updates sign-up: sits above the mobile booking bar. */
+.subscribe-pill {
+  position: fixed; right: 1.25rem; bottom: 1.25rem; z-index: 70;
+  min-height: 48px; padding: .7rem 1rem; border: 2px solid var(--gold);
+  border-radius: 999px; background: var(--maroon); color: var(--white);
+  font: 600 .92rem/1.2 var(--font-head); cursor: pointer; box-shadow: var(--shadow-md);
+}
+.subscribe-pill:hover { background: var(--maroon-dark); }
+.subscribe-dialog { width: min(calc(100% - 2rem), 28rem); border: 0; border-radius: var(--radius-lg); padding: 0; color: var(--text); box-shadow: var(--shadow-lg); }
+.subscribe-dialog::backdrop { background: rgba(46,24,32,.62); }
+.subscribe-form { position: relative; padding: clamp(1.4rem, 5vw, 2.25rem); }
+.subscribe-form h2 { margin-top: 0; }
+.subscribe-note { color: var(--text-mid); font-size: .92rem; line-height: 1.55; }
+.subscribe-close { position: absolute; top: .7rem; right: .8rem; border: 0; background: none; color: var(--text-mid); font-size: 1.8rem; cursor: pointer; }
+.subscribe-result { min-height: 1.5em; color: var(--text-mid); font-size: .92rem; }
+.subscribe-trap { position: absolute; left: -10000px; width: 1px; height: 1px; }
+@media (max-width: 720px) {
+  .subscribe-pill { right: .75rem; bottom: calc(4.5rem + env(safe-area-inset-bottom) + .75rem); max-width: calc(100vw - 1.5rem); }
+}
+@media print { .subscribe-pill, .subscribe-dialog { display: none !important; } }
+
 /* Upload queue list (share.html): cards, not bullets. */
 .psg-file-list { list-style: none; }
 

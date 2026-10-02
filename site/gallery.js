@@ -24,7 +24,13 @@
     if (lastFocus && lastFocus.focus) { lastFocus.focus(); }
   }
   function onOverlayKey(e) {
-    if (e.key === 'Escape') { closeOverlay(); }
+    if (e.key === 'Escape') { closeOverlay(); return; }
+    if (e.key !== 'Tab' || !overlay) return;
+    var focusables = overlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+    if (!focusables.length) return;
+    var first = focusables[0], last = focusables[focusables.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
   function openOverlay(fig) {
     lastFocus = fig;
