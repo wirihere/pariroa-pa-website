@@ -1,0 +1,6 @@
+_*.png
+_*check*.mjs
+_shot-*.mjs
+_report-*.md
+node_modules/
+.wrangler/

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Photo review — Pariroa Pā</title>
+  <meta name="description" content="Whānau photo review for Pariroa Pā Marae — trustees check and approve photos sent in by the whānau.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Pariroa Pā</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="visit.html">Visit</a>
+        <a href="book.html">Book / Hire</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="our-story.html">Our Story</a>
+        <a href="our-future.html">Our Future</a>
+        <a href="panui.html">Pānui</a>
+        <a href="photos.html">Photos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Cultural-safety notice (same pattern as photos.html; main.js handles the dismiss). -->
+  <div class="passing-notice no-print" role="note">
+    <p><span lang="mi"><strong>He whakaaro pōuri</strong></span> — this page may show images of people who have passed away.</p>
+    <button class="passing-notice__close" type="button" aria-label="Dismiss this notice">✕</button>
+  </div>
+
+  <div class="page-head">
+    <div class="container">
+      <h1>Photo review</h1>
+      <p>Photos sent in by the whānau, waiting for the marae's OK.</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- Login: the admin key (one password, held by the marae's administrators). -->
+    <section class="section" id="psg-login-view" hidden>
+      <div class="container">
+        <div class="form-wrap">
+          <form id="psg-login-form" class="psg-login" novalidate>
+            <h2>Tēnā koe — sign in</h2>
+            <p>Photo review is for the marae's administrators. Enter the admin key.</p>
+            <label for="psg-key">Admin key</label>
+            <input id="psg-key" name="key" type="password" autocomplete="current-password" placeholder="The admin key" required>
+            <button type="submit" id="psg-login-btn" class="btn">Sign in</button>
+            <p id="psg-login-msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Signed in but not an admin: gentle stop. -->
+    <section class="section" id="psg-not-admin" hidden>
+      <div class="container text-center">
+        <p class="section-label">Hmm</p>
+        <h2>This page is not yours</h2>
+        <p class="gallery-spiel" style="margin-inline:auto;">You're signed in, but photo review is for the marae's trustees. If you think that's you, check with Wirih. <a href="index.html">Back to the pā</a></p>
+        <button class="btn btn-outline" id="psg-notadmin-logout" type="button">Log out</button>
+      </div>
+    </section>
+
+    <!-- The review desk (admins only). -->
+    <section class="section" id="psg-admin-view" hidden>
+      <div class="container">
+        <div class="psg-vision-banner" role="note">
+          <p><span lang="mi"><strong>Vision gate</strong></span> — check for tūpuna who have passed, tamariki, and consent before approving.</p>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin-bottom:1.5rem;">
+          <p class="psg-thanks" id="psg-admin-hello" role="status" aria-live="polite" style="margin:0;"></p>
+          <button class="btn btn-outline" id="psg-logout" type="button">Log out</button>
+        </div>
+
+        <p class="section-label">Waiting for the marae's OK</p>
+        <h2>Pending photos</h2>
+        <p class="gallery-spiel">One photo at a time, with your own eyes — there's no "approve all" here. Captions can be tidied before approving.</p>
+
+        <div id="psg-admin-grid" class="psg-admin-grid" aria-live="polite"></div>
+        <p id="psg-admin-msg" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div><h3>Pariroa Pā</h3><p>The oldest marae of Ngāti Ruanui.<br>98 Pariroa Road, Kakaramea<br>South Taranaki 4598, Aotearoa New Zealand</p></div>
+        <div><h3>Follow</h3><p><a href="panui.html">Pānui / Notices</a><br><a href="https://www.facebook.com/groups/630582840908596/" rel="noopener">Facebook</a></p></div>
+      </div>
+      <p class="footer-credits">Photography: Pariroa Pā collection &middot; Fonts: Work Sans &amp; Nunito Sans (Google Fonts, OFL) &middot; Built with aroha</p>
+    </div>
+  </footer>
+  <div class="mobile-cta no-print"><a class="btn" href="book.html">Book the Marae</a></div>
+  <script src="main.js" defer></script>
+  <script src="admin.js" defer></script>
+</body>
+</html>

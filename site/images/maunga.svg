@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 700" preserveAspectRatio="xMidYMax slice" role="img" aria-label="Te Maunga o Taranaki — a drawn silhouette of the mountain at dusk">
+  <!-- PARIROA PA — Te Maunga drawn hero. Our own artwork: layered silhouette of
+       Taranaki and the Pouākai range at dusk, in the site palette. No rights issues. -->
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1B2A33"/>
+      <stop offset="0.45" stop-color="#33454F"/>
+      <stop offset="0.78" stop-color="#74899A"/>
+      <stop offset="1" stop-color="#A8B5BE"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#E0A458" stop-opacity="0.55"/>
+      <stop offset="0.6" stop-color="#E0A458" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#E0A458" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="maunga" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2E3A40"/>
+      <stop offset="0.55" stop-color="#242D32"/>
+      <stop offset="1" stop-color="#1A2126"/>
+    </linearGradient>
+    <linearGradient id="pouakai" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3A474E"/>
+      <stop offset="1" stop-color="#2A3439"/>
+    </linearGradient>
+    <linearGradient id="foreground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#141610"/>
+      <stop offset="1" stop-color="#0E100B"/>
+    </linearGradient>
+  </defs>
+
+  <!-- sky -->
+  <rect width="1920" height="700" fill="url(#sky)"/>
+
+  <!-- alpenglow behind the peak -->
+  <ellipse cx="1140" cy="360" rx="520" ry="300" fill="url(#glow)"/>
+
+  <!-- faint snowcap cloud band -->
+  <ellipse cx="1148" cy="196" rx="150" ry="26" fill="#C9CFD2" opacity="0.28"/>
+  <ellipse cx="1120" cy="176" rx="110" ry="20" fill="#C9CFD2" opacity="0.2"/>
+
+  <!-- distant range (right) -->
+  <path d="M0 560 L180 480 L330 530 L520 450 L700 545 L860 505 L980 555 L1100 520 L1100 700 L0 700 Z" fill="#44525A" opacity="0.55"/>
+
+  <!-- Pouākai range (left, older slopes) -->
+  <path d="M0 640 L120 600 L300 636 L520 560 L760 640 L940 596 L1080 660 L1080 700 L0 700 Z" fill="url(#pouakai)"/>
+
+  <!-- TE MAUNAUNA — Taranaki cone with snowcap -->
+  <path d="M1090 700
+           C 1120 560, 1140 430, 1168 330
+           C 1186 268, 1200 232, 1226 200
+           C 1244 180, 1262 176, 1282 186
+           C 1310 200, 1330 244, 1352 310
+           C 1382 402, 1410 540, 1444 700 Z"
+        fill="url(#maunga)"/>
+  <!-- snow cap -->
+  <path d="M1201 232
+           C 1214 200, 1236 178, 1262 176
+           C 1276 176, 1288 184, 1296 198
+           C 1300 208, 1296 216, 1286 218
+           C 1270 222, 1262 214, 1252 220
+           C 1240 228, 1232 222, 1222 230
+           C 1214 238, 1206 240, 1201 232 Z"
+        fill="#E9EDEF" opacity="0.92"/>
+  <!-- ridge shading -->
+  <path d="M1262 176 C 1280 186, 1300 224, 1320 290 C 1300 262, 1282 240, 1270 230 C 1262 224, 1258 210, 1262 176 Z" fill="#101518" opacity="0.35"/>
+
+  <!-- foreground rolling land — the whenua -->
+  <path d="M0 700 L0 660
+           C 200 630, 420 646, 640 668
+           C 900 692, 1220 676, 1500 652
+           C 1660 638, 1800 640, 1920 656
+           L 1920 700 Z" fill="url(#foreground)"/>
+
+  <!-- a lone tī kōuka (cabbage tree) silhouette on the right — a Taranaki signature -->
+  <g fill="#0E100B">
+    <rect x="1683" y="560" width="7" height="96" transform="rotate(4 1686 608)"/>
+    <path d="M1686 566 C 1668 540, 1640 534, 1620 544 C 1646 528, 1660 508, 1654 488 C 1668 508, 1690 516, 1706 508 C 1694 528, 1698 548, 1714 560 C 1694 556, 1676 566, 1686 566 Z"/>
+  </g>
+</svg>

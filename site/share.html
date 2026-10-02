@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tukuna mai — send us your photos — Pariroa Pā</title>
+  <meta name="description" content="Share your photos of Pariroa Pā Marae with the whānau — bring them home and we will add them to the gallery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;600;700&family=Nunito+Sans:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="index.html">Pariroa Pā</a>
+      <nav class="nav" aria-label="Main">
+        <a href="index.html">Home</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="visit.html">Visit</a>
+        <a href="book.html">Book / Hire</a>
+        <a href="support.html">Support</a>
+        <a href="contact.html">Contact</a>
+        <span class="nav-sep" aria-hidden="true"></span>
+        <a href="our-story.html">Our Story</a>
+        <a href="our-future.html">Our Future</a>
+        <a href="panui.html">Pānui</a>
+        <a href="photos.html" aria-current="page">Photos</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Cultural-safety notice (same pattern as index/our-story; main.js handles the dismiss). -->
+  <div class="passing-notice no-print" role="note">
+    <p><span lang="mi"><strong>He whakaaro pōuri</strong></span> — this page may show images of people who have passed away.</p>
+    <button class="passing-notice__close" type="button" aria-label="Dismiss this notice">✕</button>
+  </div>
+
+  <div class="page-head">
+    <div class="container">
+      <h1 lang="mi">Tukuna mai</h1>
+      <p>Send us your photos — bring them home to the pā.</p>
+    </div>
+  </div>
+
+  <main>
+    <!-- Section 1: explain -->
+    <section class="section" aria-labelledby="psg-login-h">
+      <div class="container">
+        <p class="section-label">Nō ngā whānau</p>
+        <h2 id="psg-login-h">Your photos belong here</h2>
+        <p>If you hold pictures of <span lang="mi">ngā whānau</span> and the marae across the years — birthdays, tangi, working bees, noho, old days — we would love to see them. Every photo comes home to Pariroa.</p>
+        <p>Send them below. Nothing goes on the site until the administrators have given them the OK — and we'll email you when your photos are posted.</p>
+      </div>
+    </section>
+
+    <!-- Section 2: upload (open — just leave your email so we can tell you when they're posted) -->
+    <section class="section section-sage" id="psg-upload" aria-labelledby="psg-upload-h">
+      <div class="container">
+        <p class="section-label">Tukuna mai</p>
+        <h2 id="psg-upload-h">Add your photos</h2>
+        <p>Up to 20 photos at a time. We shrink them on your device before sending — big phone photos are fine.</p>
+
+        <form class="form-wrap" id="psg-email-form" novalidate>
+          <label for="psg-email">Your email</label>
+          <input type="email" id="psg-email" name="email" autocomplete="email" required
+                 placeholder="you@example.com" inputmode="email" maxlength="254">
+          <p id="psg-email-note" class="gallery-spiel" style="margin-top:0.5rem;">So the administrators can tell you when your photos are posted.</p>
+        </form>
+
+        <div class="psg-drop" id="psg-drop" role="button" tabindex="0"
+             aria-label="Drop photos here, or press Enter to choose photos">
+          <p><strong>Drop photos here</strong></p>
+          <p>or</p>
+          <button class="btn" type="button" id="psg-pick-btn">Choose photos</button>
+          <input type="file" id="psg-file-input" accept="image/*" multiple hidden
+                 aria-label="Choose photos to send">
+          <p id="psg-drop-msg" role="status" aria-live="polite"></p>
+        </div>
+
+        <ul id="psg-file-list" class="psg-file-list" aria-label="Photos ready to send"></ul>
+
+        <button class="btn" type="button" id="psg-send-all" hidden>Send <span id="psg-send-count">0</span> photo<span id="psg-send-plural">s</span> to the marae</button>
+      </div>
+    </section>
+
+    <!-- Section 3: after -->
+    <section class="section psg-thanks" id="psg-thanks" aria-labelledby="psg-thanks-h" hidden>
+      <div class="container text-center">
+        <p class="section-label">Ngā mihi</p>
+        <h2 id="psg-thanks-h" lang="mi">Ngā mihi</h2>
+        <p id="psg-thanks-text">Your photos are with the administrators now — we'll be in touch when they're posted.</p>
+        <button class="btn" type="button" id="psg-send-more">Send more photos</button>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-cols">
+        <div><h3>Pariroa Pā</h3><p>The oldest marae of Ngāti Ruanui.<br>98 Pariroa Road, Kakaramea<br>South Taranaki 4598, Aotearoa New Zealand</p></div>
+        <div><h3>Follow</h3><p><a href="panui.html">Pānui / Notices</a><br><a href="https://www.facebook.com/groups/630582840908596/" rel="noopener">Facebook</a></p></div>
+      </div>
+      <p class="footer-credits">Photography: Pariroa Pā collection &middot; Fonts: Work Sans &amp; Nunito Sans (Google Fonts, OFL) &middot; Built with aroha</p>
+    </div>
+  </footer>
+  <div class="mobile-cta no-print"><a class="btn" href="book.html">Book the Marae</a></div>
+  <script src="main.js" defer></script>
+  <script src="share.js" defer></script>
+</body>
+</html>

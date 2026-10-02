@@ -1,0 +1,14 @@
+# Pariroa Pā site — Cloudflare Pages config (photo gallery, 2 Oct 2026)
+# deploy.ps1 still works: wrangler reads this file for project name, assets dir
+# and the PHOTOS bucket binding. Env secrets are set on the project (not here).
+name = "pariroa-pa"
+pages_build_output_dir = "site"
+compatibility_date = "2026-10-01"
+
+[[r2_buckets]]
+binding = "PHOTOS"
+bucket_name = "pariroa-photos"
+
+# NOTE: secrets (SESSION_SECRET, ADMIN_EMAILS) are managed with
+# `npx wrangler pages secret put` — not here. A [vars] block here makes
+# deploys drop project secrets (observed 2 Oct 2026, wrangler 4.59.2).
