@@ -19,6 +19,7 @@ status: deployed
 - `wrangler.toml` — Pages config: project name, `site/` as assets dir, PHOTOS → `pariroa-photos` R2 bucket binding. Never add a `[vars]` block (drops project secrets on deploy). Secrets: SESSION_SECRET, ADMIN_KEY, ADMIN_EMAILS — set on the Pages project via API.
 - `deploy.ps1` — deploy to Cloudflare Pages (`pariroa-pa` project). Reads the API token from `C:\Users\wirih\repos\automation-template\.env` (CLOUDFLARE_API_TOKEN) — never hardcode it.
 - Domain: **pariroapa.nz** (Porkbun, wirihere account) → Cloudflare Pages custom domain.
+- **GitHub**: [wirihere/pariroa-pa-website](https://github.com/wirihere/pariroa-pa-website) — public repo, this exact folder. After changes: commit, `git push origin main`, run deploy.ps1. (Token can't create private repos; flip it to private on GitHub if you want.)
 
 ## Photo gallery (built 2 Oct 2026)
 

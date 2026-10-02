@@ -1,8 +1,7 @@
 /* Pariroa Pā — gallery.js (2026-10-02).
-   Loads the whānau gallery from /api/gallery into #whanau-gallery on photos.html.
-   Progressive enhancement only: if the fetch fails or the gallery is empty,
-   the whole "Nō ngā whānau" section hides itself quietly — the rest of the
-   photos page is untouched plain HTML.
+   Adds approved uploads into the single #photo-gallery grid on photos.html.
+   Progressive enhancement only: static photos remain visible if uploads are
+   empty or the gallery request fails.
 
    Lightbox note: main.js binds its lightbox to .gallery-item elements ONCE at
    load (no event delegation), so figures injected here would get nothing.
@@ -10,14 +9,8 @@
    and class names main.js builds (.lightbox / .lightbox__close), so the
    existing lightbox styles apply — no libraries, no new CSS of its own. */
 (function () {
-  var wrap = document.getElementById('whanau-gallery');
-  var section = document.getElementById('whanau-section');
-  if (!wrap || !section) { return; }
-
-  function hideSection() {
-    section.setAttribute('hidden', '');
-    section.remove(); // gone for good this load — nothing to see, nothing to tab to
-  }
+  var wrap = document.getElementById('photo-gallery');
+  if (!wrap) { return; }
 
   /* --- tiny overlay fallback (same shape main.js builds, same classes) --- */
   var overlay = null;
@@ -103,13 +96,14 @@
     .then(function (r) { if (!r.ok) { throw new Error('http ' + r.status); } return r.json(); })
     .then(function (manifest) {
       var photos = (manifest && manifest.photos) || [];
-      if (!photos.length) { hideSection(); return; }
+      if (!photos.length) { return; }
       var frag = document.createDocumentFragment();
       photos.forEach(function (p) {
         if (p && p.id) { frag.appendChild(buildFigure(p)); }
       });
-      if (!frag.childNodes.length) { hideSection(); return; }
-      wrap.appendChild(frag);
+      if (!frag.childNodes.length) { return; }
+      // New uploads lead the same gallery; the existing photos follow.
+      wrap.insertBefore(frag, wrap.firstChild);
     })
-    .catch(hideSection);
+    .catch(function () { /* Static photos stay visible. */ });
 })();
